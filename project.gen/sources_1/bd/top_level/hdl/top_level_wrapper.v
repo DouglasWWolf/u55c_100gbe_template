@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
-//Date        : Fri Apr  4 01:54:51 2025
+//Date        : Fri Apr  4 02:57:07 2025
 //Host        : wolf-super-server running 64-bit Ubuntu 20.04.6 LTS
 //Command     : generate_target top_level_wrapper.bd
 //Design      : top_level_wrapper
@@ -11,8 +11,6 @@
 
 module top_level_wrapper
    (hbm_cattrip,
-    led_qsfp0_stat_grn,
-    led_qsfp1_stat_grn,
     pcie0_refclk_clk_n,
     pcie0_refclk_clk_p,
     pcie_mgt_0_rxn,
@@ -26,15 +24,15 @@ module top_level_wrapper
     qsfp0_gt_grx_p,
     qsfp0_gt_gtx_n,
     qsfp0_gt_gtx_p,
+    qsfp0_led,
     qsfp1_clk_clk_n,
     qsfp1_clk_clk_p,
     qsfp1_gt_grx_n,
     qsfp1_gt_grx_p,
     qsfp1_gt_gtx_n,
-    qsfp1_gt_gtx_p);
+    qsfp1_gt_gtx_p,
+    qsfp1_led);
   output [0:0]hbm_cattrip;
-  output [0:0]led_qsfp0_stat_grn;
-  output [0:0]led_qsfp1_stat_grn;
   input [0:0]pcie0_refclk_clk_n;
   input [0:0]pcie0_refclk_clk_p;
   input [7:0]pcie_mgt_0_rxn;
@@ -48,16 +46,16 @@ module top_level_wrapper
   input [3:0]qsfp0_gt_grx_p;
   output [3:0]qsfp0_gt_gtx_n;
   output [3:0]qsfp0_gt_gtx_p;
+  output [2:0]qsfp0_led;
   input qsfp1_clk_clk_n;
   input qsfp1_clk_clk_p;
   input [3:0]qsfp1_gt_grx_n;
   input [3:0]qsfp1_gt_grx_p;
   output [3:0]qsfp1_gt_gtx_n;
   output [3:0]qsfp1_gt_gtx_p;
+  output [2:0]qsfp1_led;
 
   wire [0:0]hbm_cattrip;
-  wire [0:0]led_qsfp0_stat_grn;
-  wire [0:0]led_qsfp1_stat_grn;
   wire [0:0]pcie0_refclk_clk_n;
   wire [0:0]pcie0_refclk_clk_p;
   wire [7:0]pcie_mgt_0_rxn;
@@ -71,17 +69,17 @@ module top_level_wrapper
   wire [3:0]qsfp0_gt_grx_p;
   wire [3:0]qsfp0_gt_gtx_n;
   wire [3:0]qsfp0_gt_gtx_p;
+  wire [2:0]qsfp0_led;
   wire qsfp1_clk_clk_n;
   wire qsfp1_clk_clk_p;
   wire [3:0]qsfp1_gt_grx_n;
   wire [3:0]qsfp1_gt_grx_p;
   wire [3:0]qsfp1_gt_gtx_n;
   wire [3:0]qsfp1_gt_gtx_p;
+  wire [2:0]qsfp1_led;
 
   top_level top_level_i
        (.hbm_cattrip(hbm_cattrip),
-        .led_qsfp0_stat_grn(led_qsfp0_stat_grn),
-        .led_qsfp1_stat_grn(led_qsfp1_stat_grn),
         .pcie0_refclk_clk_n(pcie0_refclk_clk_n),
         .pcie0_refclk_clk_p(pcie0_refclk_clk_p),
         .pcie_mgt_0_rxn(pcie_mgt_0_rxn),
@@ -95,10 +93,12 @@ module top_level_wrapper
         .qsfp0_gt_grx_p(qsfp0_gt_grx_p),
         .qsfp0_gt_gtx_n(qsfp0_gt_gtx_n),
         .qsfp0_gt_gtx_p(qsfp0_gt_gtx_p),
+        .qsfp0_led(qsfp0_led),
         .qsfp1_clk_clk_n(qsfp1_clk_clk_n),
         .qsfp1_clk_clk_p(qsfp1_clk_clk_p),
         .qsfp1_gt_grx_n(qsfp1_gt_grx_n),
         .qsfp1_gt_grx_p(qsfp1_gt_grx_p),
         .qsfp1_gt_gtx_n(qsfp1_gt_gtx_n),
-        .qsfp1_gt_gtx_p(qsfp1_gt_gtx_p));
+        .qsfp1_gt_gtx_p(qsfp1_gt_gtx_p),
+        .qsfp1_led(qsfp1_led));
 endmodule

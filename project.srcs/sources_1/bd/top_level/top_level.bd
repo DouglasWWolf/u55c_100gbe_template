@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xC877146AFB7EDF80",
+      "boundary_crc": "0xDA24F543A1E05036",
       "device": "xcu55c-fsvh2892-2L-e",
       "gen_directory": "../../../../project.gen/sources_1/bd/top_level",
       "name": "top_level",
@@ -34,7 +34,8 @@
             "cdc_fifo": "",
             "axis_register_slice": ""
           }
-        }
+        },
+        "u55c_leds": ""
       },
       "channel_1": {
         "packet_gen": "",
@@ -49,7 +50,8 @@
             "cdc_fifo": "",
             "packet_fifo": ""
           }
-        }
+        },
+        "u55c_leds": ""
       }
     },
     "interface_ports": {
@@ -144,14 +146,14 @@
           }
         }
       },
-      "led_qsfp0_stat_grn": {
+      "qsfp1_led": {
         "direction": "O",
-        "left": "0",
+        "left": "2",
         "right": "0"
       },
-      "led_qsfp1_stat_grn": {
+      "qsfp0_led": {
         "direction": "O",
-        "left": "0",
+        "left": "2",
         "right": "0"
       }
     },
@@ -720,9 +722,9 @@
             "left": "63",
             "right": "0"
           },
-          "link_status": {
+          "leds": {
             "direction": "O",
-            "left": "0",
+            "left": "2",
             "right": "0"
           }
         },
@@ -1599,6 +1601,41 @@
                 ]
               }
             }
+          },
+          "u55c_leds": {
+            "vlnv": "xilinx.com:module_ref:u55c_leds:1.0",
+            "xci_name": "top_level_u55c_leds_0_0",
+            "xci_path": "ip/top_level_u55c_leds_0_0/top_level_u55c_leds_0_0.xci",
+            "inst_hier_path": "channel_0/u55c_leds",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "u55c_leds",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "FREQ_HZ": {
+                    "value": "250000000",
+                    "value_src": "user_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "top_level_xdma_0_0_axi_aclk",
+                    "value_src": "default_prop"
+                  }
+                }
+              },
+              "async_link_status": {
+                "direction": "I"
+              },
+              "leds": {
+                "direction": "O",
+                "left": "2",
+                "right": "0"
+              }
+            }
           }
         },
         "interface_nets": {
@@ -1642,10 +1679,10 @@
               "packet_gen/start"
             ]
           },
-          "eth0_rx_aligned": {
+          "eth_rx_aligned": {
             "ports": [
               "eth/rx_aligned",
-              "link_status"
+              "u55c_leds/async_link_status"
             ]
           },
           "pcie_bridge_0_axi_aclk": {
@@ -1654,7 +1691,8 @@
               "eth/sys_clk",
               "data_consumer/clk",
               "system_ila/clk",
-              "packet_gen/clk"
+              "packet_gen/clk",
+              "u55c_leds/clk"
             ]
           },
           "pcie_bridge_0_axi_aresetn": {
@@ -1663,6 +1701,12 @@
               "eth/sys_resetn_in",
               "data_consumer/resetn",
               "packet_gen/resetn"
+            ]
+          },
+          "u55c_leds_0_leds": {
+            "ports": [
+              "u55c_leds/leds",
+              "leds"
             ]
           }
         }
@@ -1695,9 +1739,9 @@
             "left": "63",
             "right": "0"
           },
-          "link_status": {
+          "leds": {
             "direction": "O",
-            "left": "0",
+            "left": "2",
             "right": "0"
           }
         },
@@ -2497,6 +2541,41 @@
                 ]
               }
             }
+          },
+          "u55c_leds": {
+            "vlnv": "xilinx.com:module_ref:u55c_leds:1.0",
+            "xci_name": "top_level_u55c_leds_0_1",
+            "xci_path": "ip/top_level_u55c_leds_0_1/top_level_u55c_leds_0_1.xci",
+            "inst_hier_path": "channel_1/u55c_leds",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "u55c_leds",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "FREQ_HZ": {
+                    "value": "250000000",
+                    "value_src": "user_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "top_level_xdma_0_0_axi_aclk",
+                    "value_src": "default_prop"
+                  }
+                }
+              },
+              "async_link_status": {
+                "direction": "I"
+              },
+              "leds": {
+                "direction": "O",
+                "left": "2",
+                "right": "0"
+              }
+            }
           }
         },
         "interface_nets": {
@@ -2540,10 +2619,10 @@
               "packet_gen/start"
             ]
           },
-          "eth0_rx_aligned": {
+          "eth_rx_aligned": {
             "ports": [
               "eth/rx_aligned",
-              "link_status"
+              "u55c_leds/async_link_status"
             ]
           },
           "pcie_bridge_0_axi_aclk": {
@@ -2552,7 +2631,8 @@
               "eth/sys_clk",
               "data_consumer/clk",
               "system_ila/clk",
-              "packet_gen/clk"
+              "packet_gen/clk",
+              "u55c_leds/clk"
             ]
           },
           "pcie_bridge_0_axi_aresetn": {
@@ -2561,6 +2641,12 @@
               "eth/sys_resetn_in",
               "data_consumer/resetn",
               "packet_gen/resetn"
+            ]
+          },
+          "u55c_leds_0_leds": {
+            "ports": [
+              "u55c_leds/leds",
+              "leds"
             ]
           }
         }
@@ -2631,16 +2717,16 @@
           "channel_1/start"
         ]
       },
-      "channel_1_link_status": {
+      "channel_0_leds": {
         "ports": [
-          "channel_1/link_status",
-          "led_qsfp1_stat_grn"
+          "channel_0/leds",
+          "qsfp0_led"
         ]
       },
-      "eth0_rx_aligned": {
+      "channel_1_leds": {
         "ports": [
-          "channel_0/link_status",
-          "led_qsfp0_stat_grn"
+          "channel_1/leds",
+          "qsfp1_led"
         ]
       },
       "gnd_dout": {

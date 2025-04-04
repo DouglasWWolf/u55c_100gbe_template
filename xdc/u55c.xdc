@@ -48,12 +48,12 @@ set_property -dict {PACKAGE_PIN BF41  IOSTANDARD LVCMOS18} [get_ports pcie_perst
 #
 # LED status lights, usually used for QSFP status
 #
-set_property -dict {PACKAGE_PIN BL13  IOSTANDARD LVCMOS18}  [get_ports led_qsfp0_activity]
-set_property -dict {PACKAGE_PIN BK11  IOSTANDARD LVCMOS18}  [get_ports led_qsfp0_stat_grn]
-set_property -dict {PACKAGE_PIN BJ11  IOSTANDARD LVCMOS18}  [get_ports led_qsfp0_stat_yel]
-set_property -dict {PACKAGE_PIN BK14  IOSTANDARD LVCMOS18}  [get_ports led_qsfp1_activity]
-set_property -dict {PACKAGE_PIN BK15  IOSTANDARD LVCMOS18}  [get_ports led_qsfp1_stat_grn]
-set_property -dict {PACKAGE_PIN BL12  IOSTANDARD LVCMOS18}  [get_ports led_qsfp1_stat_yel]
+set_property -dict {PACKAGE_PIN BL13  IOSTANDARD LVCMOS18}  [get_ports qsfp0_led[0]] ;# Activity
+set_property -dict {PACKAGE_PIN BK11  IOSTANDARD LVCMOS18}  [get_ports qsfp0_led[1]] ;# Link-status, green
+set_property -dict {PACKAGE_PIN BJ11  IOSTANDARD LVCMOS18}  [get_ports qsfp0_led[2]] ;# Link-status, yellow
+set_property -dict {PACKAGE_PIN BK14  IOSTANDARD LVCMOS18}  [get_ports qsfp1_led[0]] ;# Activity
+set_property -dict {PACKAGE_PIN BK15  IOSTANDARD LVCMOS18}  [get_ports qsfp1_led[1]] ;# Link-status, green
+set_property -dict {PACKAGE_PIN BL12  IOSTANDARD LVCMOS18}  [get_ports qsfp1_led[2]] ;# Link-Status, yellow
 
 
 #
