@@ -21,8 +21,8 @@ set_property -dict {PACKAGE_PIN BE45  IOSTANDARD LVCMOS18} [get_ports hbm_cattri
 # PCIe0 is: Block X1Y0
 #           Quad  227
 #
-set_property PACKAGE_PIN AR15                   [get_ports pcie0_refclk_clk_p]
-set_property PACKAGE_PIN AR14                   [get_ports pcie0_refclk_clk_n]
+set_property PACKAGE_PIN AL15                   [get_ports pcie0_refclk_clk_p]
+set_property PACKAGE_PIN AL14                   [get_ports pcie0_refclk_clk_n]
 create_clock -period 10.000 -name pcie0_sys_clk [get_ports pcie0_refclk_clk_p]
 set_clock_groups -group [get_clocks pcie0_sys_clk -include_generated_clocks] -asynchronous
 
@@ -33,8 +33,8 @@ set_clock_groups -group [get_clocks pcie0_sys_clk -include_generated_clocks] -as
 # PCIe1 is: Block X1Y1
 #           Quad  225
 #
-set_property PACKAGE_PIN AL15                   [get_ports pcie1_refclk_clk_p]
-set_property PACKAGE_PIN AL14                   [get_ports pcie1_refclk_clk_n]
+set_property PACKAGE_PIN AR15                   [get_ports pcie1_refclk_clk_p]
+set_property PACKAGE_PIN AR14                   [get_ports pcie1_refclk_clk_n]
 create_clock -period 10.000 -name pcie1_sys_clk [get_ports pcie1_refclk_clk_p]
 set_clock_groups -group [get_clocks pcie1_sys_clk -include_generated_clocks] -asynchronous
 
